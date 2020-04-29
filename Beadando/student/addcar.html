@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="application/javascript" src="js/addcar.js"></script>
+<div class="container">
+    <form action="/addCar" method="post">
+        <div class="row">
+            <label>Gyártó:</label>
+            <div class="select">
+            </div>
+        </div>
+        <div class="row">
+            <label>Modell:</label>
+            <input type="text" name="name" required="required"/>
+        </div>
+        <div class="row">
+            <label>Fogyasztás:</label>
+            <input type="text" name="consumption" required="required"/>
+        </div>
+        <div class="row">
+            <label>Szín:</label>
+            <input type="text" name="color" required="required"/>
+        </div>
+        <div class="row">
+            <label>Évjárat:</label>
+            <input id="date_field" type="date" name="founded" required="required"/>
+        </div>
+        <div class="row">
+            <label>Darabszám:</label>
+            <input type="number" name="available" required="required"/>
+        </div>
+        <div class="row">
+            <label>Lőerő:</label>
+            <input type="number" name="horsepower" required="required"/>
+        </div>
+        <div class="row">
+            <input type="submit" value="Autó hozzáadása">
+        </div>
+    </form>
+</div>
+</html>

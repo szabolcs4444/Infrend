@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(../image/asdd.jpg) no-repeat;
+    background-size: cover;
+
+
+
+
+}
+
+
+a
+{
+    color: yellow;
+    font-family: Tahoma, Geneva,sans-serif;
+    margin-left: 30px;
+
+}
+
+.cong
+{
+    background: rgba(44,62,80,0.7);
+    padding: 40px;
+    height: 200px;
+
+    margin:0 auto;
+    width: 240px;
+
+}
+h2{
+
+
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+

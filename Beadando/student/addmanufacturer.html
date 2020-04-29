@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="application/javascript" src="js/addmanufacturer.js"></script>
+<div class="container">
+    <form id="addmanu" action="/addManufacturer" method="post">
+        <div class="row">
+            <label>Név:</label>
+            <input type="text" name="name" required="required"/>
+        </div>
+        <div class="row">
+            <label>Ország:</label>
+            <input type="text" name="country" required="required"/>
+        </div>
+        <div class="row">
+            <label>Mikor alapították:</label>
+            <input id="date_field" type="date" name="founded" required="required"/>
+        </div>
+        <div class="row">
+            <input type="submit" value="Gyártó hozzáadása">
+        </div>
+    </form>
+</div>
+</html>
