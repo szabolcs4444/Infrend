@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="application/javascript" src="js/addpatient.js"></script>
+<div class="container">
+    <form id="addmanu" action="/addPatient" method="post">
+        <div class="row">
+            <label>Taj szám:</label>
+            <input type="number" name="socialSecurityNumber" required="required"/>
+        </div>
+        <div class="row">
+            <label>Kór történet:</label>
+            <input type="text" name="diseaseHistory" required="required"/>
+        </div>
+        <div class="row">
+            <label>Név:</label>
+            <input type="text" name="fullName" required="required"/>
+        </div>
+        <div class="row">
+            <label>Születési dátum:</label>
+            <input id="date_field" type="date" name="birthTime" required="required"/>
+        </div>
+        <div class="row">
+            <input type="submit" value="Beteg hozzáadása">
+        </div>
+    </form>
+</div>
+</html>

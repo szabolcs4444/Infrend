@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="application/javascript" src="js/addvisitmanager.js"></script>
+<div class="container">
+    <form action="/addVisitManagement" method="post">
+        <div class="row">
+            <label>Taj szám:</label>
+            <div class="select">
+            </div>
+        </div>
+        <div class="row">
+            <label>Diagnózis:</label>
+            <input type="text" name="diagnosis" required="required"/>
+        </div>
+        <div class="row">
+            <label>Lelet értékelése:</label>
+            <input type="text" name="assessmentFindings" required="required"/>
+        </div>
+        <div class="row">
+            <label>Kezelés:</label>
+            <input type="text" name="treatment" required="required"/>
+        </div>
+        <div class="row">
+            <label>Következő szűrővizságlat Időpontja:</label>
+            <input id="date_field" type="date" name="year" required="required"/>
+        </div>
+        <div class="row">
+            <label>Szürővizsgálat tipusa:</label>
+            <input type="text" name="screening" required="required"/>
+        </div>
+        <div class="row">
+            <label>Gyógyszerek listája:</label>
+            <input type="text" name="drug" required="required"/>
+        </div>
+        <div class="row">
+            <label>Gyógyszerszedés napi darabszám:</label>
+            <input type="number" name="quantity" required="required"/>
+        </div>
+        <div class="row">
+            <label>Gyógyszerszedés időtartama hetekre nézve:</label>
+            <input type="number" name="week" required="required"/>
+        </div>
+        <div class="row">
+            <input type="submit" value="Autó hozzáadása">
+        </div>
+    </form>
+</div>
+</html>

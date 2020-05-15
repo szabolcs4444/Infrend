@@ -29,7 +29,7 @@ button {
 }
 
 body{
-    background: url(../image/asdd.jpg);
+    background: url(../image/orvos.jpg);
     background-size: 100%, 100%;
 }
 
@@ -108,7 +108,7 @@ body{
     border-collapse: collapse;
     text-align: center;
     margin: auto;
-    width: 100%;
+    width: 160%;
     alignment: center;
     border: none;
 }
@@ -116,7 +116,7 @@ body{
 #allTableth {
     border: none;
     font-size: 20px;
-    height: 25px;
+    height: 40px;
 }
 
 #allTabletd {

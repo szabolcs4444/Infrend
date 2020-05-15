@@ -23,12 +23,12 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../webtech/webtech1-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -51,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.app.js">
+  <component name="RunManager" selected="Node.js.login.js">
     <configuration name="index2.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/webtech1-master másolata (2)/index2.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -61,7 +61,7 @@
     <configuration name="app.js" type="NodeJSConfigurationType" path-to-node="node" nameIsGenerated="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="listcars.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/student/js/listcars.js" working-dir="$PROJECT_DIR$/student/js">
+    <configuration name="listvisitmanager.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/student/js/listvisitmanager.js" working-dir="$PROJECT_DIR$/student/js">
       <method v="2" />
     </configuration>
     <configuration name="login.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/student/nodelogin/login.js" working-dir="$PROJECT_DIR$/student/js">
@@ -75,7 +75,7 @@
       <item itemvalue="JavaScript Debug.login.html" />
       <item itemvalue="Node.js.app.js" />
       <item itemvalue="Node.js.login.js" />
-      <item itemvalue="Node.js.listcars.js" />
+      <item itemvalue="Node.js.listvisitmanager.js" />
       <item itemvalue="Node.js.test.js" />
     </list>
     <recent_temporary>
@@ -83,7 +83,7 @@
         <item itemvalue="Node.js.login.js" />
         <item itemvalue="Node.js.test.js" />
         <item itemvalue="JavaScript Debug.login.html" />
-        <item itemvalue="Node.js.listcars.js" />
+        <item itemvalue="Node.js.listvisitmanager.js" />
         <item itemvalue="JavaScript Debug.index2.html" />
       </list>
     </recent_temporary>
@@ -130,6 +130,12 @@
       <workItem from="1575233858896" duration="2434000" />
       <workItem from="1575329268205" duration="1000" />
       <workItem from="1588197680483" duration="92000" />
+      <workItem from="1588515161988" duration="9011000" />
+      <workItem from="1588689952395" duration="600000" />
+      <workItem from="1588700693387" duration="9639000" />
+      <workItem from="1589182902820" duration="32800000" />
+      <workItem from="1589532836466" duration="2830000" />
+      <workItem from="1589537471036" duration="1767000" />
     </task>
     <servers />
   </component>

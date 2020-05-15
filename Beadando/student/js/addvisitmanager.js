@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $.getJSON('manufacturerNames', function (data) {
-        var select = $('<select name="manufacturer" required="required"></select>');
+    $.getJSON('patientNumber', function (data) {
+        var select = $('<select name="patient" required="required"></select>');
         $.each(data, function (key, value) {
             var option = $('<option value="' + value + '">' + value + '</option>');
             select.append(option);
@@ -15,7 +15,7 @@ $(function () {
 
         $.ajax({
             type: 'post',
-            url: 'addCar',
+            url: 'addVisitManagement',
             data: $('form').serialize(),
             success: function () {
                 confirm("Hozzáadva")

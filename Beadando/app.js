@@ -3,179 +3,106 @@ var express = require('express');
 var bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
 var app = express();
-var manufacturers =
+var patients =
     [
-        {"name": "Opel",                "country": "Germany",       "founded": "January 21, 1862"},
-        {"name": "Toyota",              "country": "Japan",         "founded": "August 28, 1937"},
-        {"name": "Kia",                 "country": "Bad Korea",     "founded": "December 1, 1944"},
-        {"name": "Skoda",               "country": "Czech",         "founded": "December 18, 1895"},
-        {"name": "Ford",                "country": "USA",           "founded": "June 16, 1903"},
-        {"name": "Tesla",               "country": "USA",           "founded": "July 1, 2003"},
-        {"name": "Chevrolet",           "country": "USA",           "founded": "November 3, 1911"},
-        {"name": "Sungri Motor Plant",  "country": "True Korea",    "founded": "November 1, 1950"}
+        {"socialSecurityNumber": "426573576",           "diseaseHistory": "magas láz, fejfájás",   "fullName": "Fekete Patrik",    "birthTime": "1995-12-24"},
+        {"socialSecurityNumber": "947221745",           "diseaseHistory": "tüdőgyulladás",     "fullName": "Nagy lajos",    "birthTime": "1980-10-27"},
+        {"socialSecurityNumber": "123456789",           "diseaseHistory": "covid-19",  "fullName": "Boros Géza",   "birthTime": "2000-11-12"},
+        {"socialSecurityNumber": "876554433",           "diseaseHistory": "influenza",     "fullName": "Hajdu Nándor",    "birthTime": "2000-01-01"},
+        {"socialSecurityNumber": "222111667",           "diseaseHistory": "fejfájás,hasmenés",    "fullName": "Nagy Ferenc",       "birthTime": "1970-07-07"},
+        {"socialSecurityNumber": "356723567",           "diseaseHistory": "alzheimer",     "fullName": "Tóth Zsuzsanna",      "birthTime": "1950-05-04"},
+        {"socialSecurityNumber": "102582346",           "diseaseHistory": "Szív- és érrendszeri betegségek",       "fullName": "Molnár Petra",    "birthTime": "1942-02-13"},
+        {"socialSecurityNumber": "174331754",           "diseaseHistory": "Tojásallergia", "fullName": "Kerekes Boglárka",   "birthTime": "2002-08-20"}
 ];
-var cars = [
+var visits = [
     {
-        "name": "Corolla",
-        "consumption": "7l/100km",
-        "color": "gray",
-        "manufacturer": "Toyota",
-        "available": 1,
-        "year": 2003,
-        "horsepower":100
+        "diagnosis": "Krónikus betegség",
+        "assessmentFindings": "több eltérés a normáltól",
+        "treatment": "Helyes táplálkozás,műtét",
+        "patient": "174331754",
+        "quantity": 1,
+        "year": "2021-03-23",
+        "week":10,
+        "screening":"mammográfiai,általános vizsgálat",
+        "drug":"szteroid"
     },
     {
-        "name":"Astra",
-        "consumption":"10l/100km",
-        "color":"gold",
-        "manufacturer":"Opel",
-        "year":1996,
-        "available":1,
-        "horsepower":50
+        "diagnosis":"Tüdődaganat",
+        "assessmentFindings":"megemelkedett fehérvérsejt",
+        "treatment":"Sugár,kemoterápia",
+        "patient":"102582346",
+        "year":"2023-02-02",
+        "quantity":3,
+        "week":20,
+        "screening":"tüdőszűrés,mammográfiai",
+        "drug":"Vitamin"
     },
     {
-        "name": "Focus",
-        "consumption": "7/100km",
-        "color": "blue",
-        "manufacturer": "Ford",
-        "available": 1,
-        "year": 2013,
-        "horsepower":120
+        "diagnosis": "Cukorbetegség",
+        "assessmentFindings": "alacsony cukor",
+        "treatment": "Helyes táplálkozás",
+        "patient": "356723567",
+        "quantity": 1,
+        "year": "2023-02-02",
+        "week":3,
+        "screening":"általános vizsgálat,mammográfiai,tüdőszűrés",
+        "drug":"inzulin"
     },
     {
-        "name": "Saxo",
-        "consumption": "4l/100km",
-        "color": "blue",
-        "manufacturer": "Kia",
-        "available": 2,
-        "year": 2001,
-        "horsepower":65
+        "diagnosis": "Magas vérnyomás",
+        "assessmentFindings": "megfelel",
+        "treatment": "rendszeres vérnyomás mérés",
+        "patient": "222111667",
+        "quantity": 2,
+        "year": "2021-03-23",
+        "week":10,
+        "screening":"általános vizsgálat,prosztata",
+        "drug":"vérnyomáscsökkentő"
     },
     {
-        "name": "Panda",
-        "consumption": "6l/100km",
-        "color": "red",
-        "manufacturer": "Tesla",
-        "available": 1,
-        "year": 2000,
-        "horsepower":85
+        "diagnosis": "mandulatályog",
+        "assessmentFindings": "pajzsmirigy alulműködés",
+        "treatment": "forró tea",
+        "patient": "876554433",
+        "quantity": 1,
+        "year": "2021-03-03",
+        "week":2,
+        "screening":"tüdőszűrés",
+        "drug":"rubophen,antibiotikum"
     },
     {
-        "name": "Fabia",
-        "consumption": "5l/100km",
-        "color": "white",
-        "manufacturer": "Skoda",
-        "available": 15,
-        "year": 2007,
-        "horsepower":68
+        "diagnosis": "Covid-19",
+        "assessmentFindings": "vérszegénység",
+        "treatment": "pihenés, gyóyszeres kezelés",
+        "patient": "123456789",
+        "quantity": 3,
+        "year": "2025-02-01",
+        "week":3,
+        "screening":"általános vizsgálat",
+        "drug":"antibiotikum"
     },
     {
-        "name": "Laguna II",
-        "consumption": "6l/100km",
-        "color": "silver",
-        "manufacturer": "Sungri Motor Plant",
-        "available": 1,
-        "year": 2003,
-        "horsepower": 96
+        "diagnosis": "Nátha",
+        "assessmentFindings": "cukor kicsivel magasabb",
+        "treatment": "pihenés, orrfújás",
+        "patient": "947221745",
+        "quantity": 1,
+        "year": "2022-05-30",
+        "week": 2,
+        "screening":"általános vizsgálat,prosztata",
+        "drug":"orrspray"
     },
+
     {
-        "name": "Supra",
-        "consumption": "13l/100km",
-        "color": "red",
-        "manufacturer": "Toyota",
-        "available": 8,
-        "year": 1995,
-        "horsepower":340
-    },
-    {
-        "name": "Zafira",
-        "consumption": "8l/100km",
-        "color": "green",
-        "manufacturer": "Opel",
-        "available": 1,
-        "year": 2002,
-        "horsepower":116
-    },
-    {
-        "name": "Ibiza",
-        "consumption": "6l/100km",
-        "color": "blue",
-        "manufacturer": "Kia",
-        "available": 100,
-        "year": 2006,
-        "horsepower": 120,
-    },
-    {
-        "name": "Prelude",
-        "consumption": "9l/100km",
-        "color": "red",
-        "manufacturer": "Ford",
-        "available": 11,
-        "year": 1999,
-        "horsepower":150
-    },
-    {
-        "name": "V40",
-        "consumption": "5.6l/100km",
-        "color": "ocean blue",
-        "manufacturer": "Volvo",
-        "available": 1,
-        "year": 2014,
-        "horsepower":150
-    },
-    {
-        "name": "Primera",
-        "consumption": "9l/100km",
-        "color": "brown",
-        "manufacturer": "Toyota",
-        "available": 15,
-        "year": 2001,
-        "horsepower":110
-    },
-    {
-        "name": "Passat",
-        "consumption": "6l/100km",
-        "color": "black",
-        "manufacturer": "Tesla",
-        "available": 1,
-        "year": 2009,
-        "horsepower":140
-    },
-    {
-        "name": "Lacetti",
-        "consumption": "9l/100km",
-        "color": "black",
-        "manufacturer": "Chevrolet",
-        "available": 5,
-        "year": 2010,
-        "horsepower":109
-    },
-    {
-        "name": "911 Carrera",
-        "consumption": "8.3l/100km",
-        "color": "white",
-        "manufacturer": "Sungri Motor Plant",
-        "available": 1,
-        "year": 2012,
-        "horsepower":345
-    },
-    {
-        "name": "Yaris",
-        "consumption": "5l/100km",
-        "color": "silver",
-        "manufacturer": "Toyota",
-        "available": 1,
-        "year": 2007,
-        "horsepower":69
-    },
-    {
-        "name": "P601",
-        "consumption": "8l / 100km",
-        "color": "light blue",
-        "manufacturer": "Kia",
-        "available": 3,
-        "year": 1964,
-        "horsepower": 26
+        "diagnosis": "Torokgyulladás",
+        "assessmentFindings": "megfelel",
+        "treatment": "sok folyadék,pihenés",
+        "patient": "426573576",
+        "quantity": 3,
+        "year": "1965-10-24",
+        "week": 1,
+        "screening":"tüdőszűrés",
+        "drug":"aspirin plus c"
     }
 ];
 
@@ -187,28 +114,38 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.get('/manufacturers', function (req, res) {
-    res.send(manufacturers);
+app.get('/patients', function (req, res) {
+    res.send(patients);
 });
 
-app.get('/manufacturerNames', function (req, res) {
-    var manufacturerNames = [];
-    for (let m of manufacturers) {
-        if (!manufacturerNames.includes(m.name)) {
-            manufacturerNames.push(m.name);
+
+app.get('/patientNumber', function (req, res) {
+    var patientNames = [];
+    for (let m of patients) {
+        if (!patientNames.includes(m.socialSecurityNumber)) {
+            patientNames.push(m.socialSecurityNumber);
         }
     }
-    res.send(manufacturerNames);
+    res.send(patientNames);
+});
+app.get('/asd',function (req,res) {
+    var asd=[];
+    for(let a of visits){
+        if(!asd.includes(a.year)){
+            asd.push(a.year);
+        }
+    }
+    res.send(asd);
 });
 
 app.get('/cars', function (req, res) {
-    res.send(cars);
+    res.send(visits);
 });
 
-app.get('/manufacturer', function (req, res) {
+app.get('/patient', function (req, res) {
     var ok = false;
-    for (var manufacturer of manufacturers) {
-        if (manufacturer.name === req.cookies.name) {
+    for (var m of patients) {
+        if (m.socialSecurityNumber === req.cookies.socialSecurityNumber) {
             ok = true;
             break;
         }
@@ -217,56 +154,82 @@ app.get('/manufacturer', function (req, res) {
         res.status(409).end();
         return;
     }
-    var manufacturerCars = [];
-    for (let car of cars) {
-        if (req.cookies.name === car.manufacturer) {
-            manufacturerCars.push(car);
+    var patientNumber = [];
+    for (let car of patients) {
+        if (req.cookies.socialSecurityNumber === car.socialSecurityNumber) {
+            patientNumber.push(car);
         }
     }
-    res.send(manufacturerCars);
+    res.send(patientNumber);
+});
+app.get('/check',function (req,res) {
+   var ok = false;
+   for(var check of visits){
+       if(check.year === req.cookies.year){
+           ok = true;
+           break;
+       }
+   }
+    if (!ok) {
+        res.status(409).end();
+        return;
+    }
+    var carCheck = [];
+    for(let car of visits){
+        if(req.cookies.year === car.year){
+            carCheck.push(car);
+        }
+    }
+    res.send(carCheck);
+
 });
 
-app.post('/addCar', function (req, res) {
-    for (var car of cars) {
-        if (car.name === req.body.name) {
+app.post('/addVisitManagement', function (req, res) {
+    for (var car of visits) {
+        if (car.diagnosis === req.body.diagnosis) {
             res.status(409).end();
             return;
         }
     }
-    var carJSON = {
-        "name":req.body.name,
-        "consumption":req.body.consumption,
-        "color":req.body.color,
-        "manufacturer":req.body.manufacturer,
+    var visitManagementJSON = {
+        "diagnosis":req.body.diagnosis,
+        "assessmentFindings":req.body.assessmentFindings,
+        "treatment":req.body.treatment,
+        "patient":req.body.patient,
         "year":req.body.year,
-        "available":req.body.available,
-        "horsepower":req.body.horsepower
+        "quantity":req.body.quantity,
+        "week":req.body.week,
+        "screening":req.body.screening,
+        "drug":req.body.drug,
+
+
     };
-    cars.push(carJSON);
-    res.send(cars);
+    visits.push(visitManagementJSON);
+    res.send(visits);
 });
 
-app.post('/addManufacturer', function (req, res) {
-    for (var m of manufacturers) {
-        if (m.name === req.body.name) {
+app.post('/addPatient', function (req, res) {
+    for (var m of patients) {
+        if (m.socialSecurityNumber === req.body.socialSecurityNumber) {
             res.status(409).end();
             return;
         }
     }
-    var manufacturer ={
-        "name": req.body.name,
-        "country": req.body.country,
-        "founded": req.body.founded
+    var patient ={
+        "socialSecurityNumber": req.body.socialSecurityNumber,
+        "diseaseHistory": req.body.diseaseHistory,
+        "fullName": req.body.fullName,
+        "birthTime": req.body.birthTime
     };
-    manufacturers.push(manufacturer);
-    res.send(manufacturers);
+    patients.push(patient);
+    res.send(patients);
 });
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + "/student/" + "index.html");
 });
 
-var server = app.listen(8081, function () {
+var server = app.listen(8082, function () {
     var host = server.address().address;
     var port = server.address().port;
     console.log("Example app listening at http://%s:%s", host, port);

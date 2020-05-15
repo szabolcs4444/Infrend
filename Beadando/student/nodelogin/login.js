@@ -54,7 +54,7 @@ app.get('/home', function(request, response) {
     if (!request.session.loggedin) {
         response.send('Please login to view this page!');
     } else {
-       response.send('<a href="http://localhost:8081/index.html">Sikeres belépés! lépj vissza</a>');
+       response.send('<a href="http://localhost:8082/index.html">Sikeres belépés! lépj vissza</a>');
 
     }
     response.end();

@@ -8,11 +8,11 @@ $(function () {
 
         $.ajax({
             type: 'post',
-            url: 'addManufacturer',
+            url: 'addPatient',
             data: $('form').serialize(),
             success: function () {
                 if (confirm("Sikeresen hozzáadta")) {
-                    $("#content").load("listmanufacturers.html");
+                    $("#content").load("listpatient.html");
                 }
             },
             error: function () {
